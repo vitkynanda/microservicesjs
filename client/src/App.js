@@ -6,7 +6,7 @@ const App = () => {
   const [update, setUpdate] = useState(false);
   return (
     <div className="container">
-      <h1>Create Post</h1>
+      <h1>Create Post App 1</h1>
       <PostCreate setUpdate={setUpdate} />
       <hr />
       <h1>Posts</h1>

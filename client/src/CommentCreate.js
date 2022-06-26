@@ -6,6 +6,10 @@ const CommentCreate = ({ postId, setUpdate }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    if (!content) {
+      alert('Plese write comment before sumbit !');
+      return;
+    }
 
     await axios.post(`http://posts.com/posts/${postId}/comments`, {
       content,
