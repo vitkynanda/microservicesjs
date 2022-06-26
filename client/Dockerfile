@@ -1,12 +1,12 @@
-FROM node:alpine
-
+FROM node:16-alpine
+ 
+# Add the following lines
+ENV CI=true
+ENV WDS_SOCKET_PORT=0
+ 
 WORKDIR /app
-COPY . /app
 COPY package.json ./
-RUN npm install 
-RUN npm install -g serve
-RUN npm run build
-
+RUN npm install
 COPY ./ ./
-
-CMD ["serve", "-s", "build"]
+ 
+CMD ["npm", "start"]

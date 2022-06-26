@@ -1,17 +1,21 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const PostCreate = () => {
-  const [title, setTitle] = useState("");
+const PostCreate = ({ setUpdate }) => {
+  const [title, setTitle] = useState('');
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    if (!title) {
+      alert('Please Input Title before submit !');
+      return false;
+    }
 
-    await axios.post("http://127.0.0.1:4000/posts", {
+    await axios.post('http://posts.com/posts/create', {
       title,
     });
-
-    setTitle("");
+    setUpdate((prev) => !prev);
+    setTitle('');
   };
 
   return (
